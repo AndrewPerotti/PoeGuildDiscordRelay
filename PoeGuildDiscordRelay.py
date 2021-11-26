@@ -2,7 +2,6 @@ import discord
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 import time
-import pyperclip
 
 client = discord.Client()
 tk.Tk().withdraw() 
@@ -17,10 +16,7 @@ def return_guild_message(clientfile):
     while True:
         line = f.readline()
         if guild_var in line:
-            line.encode(encoding='UTF-8', errors='replace')
-            pyperclip.copy(line)
-            formatted_string = pyperclip.paste()
-            temp_string_list = formatted_string.split(guild_var)
+            temp_string_list = line.split(guild_var)
             final_string = temp_string_list[1]
             return final_string
         else:
@@ -30,7 +26,7 @@ def return_guild_message(clientfile):
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    channel = client.get_channel("""Your channel's Id goes here, sorry I did not include the code to obtain that you'll have to figure that out""")
+    channel = client.get_channel("""You'll have to get the specific channel's id, i guess you could have another command for this part, sorry I didn't include it""")
     last_message = None
     while True:
         outputG = return_guild_message(clienttxt)
@@ -40,6 +36,6 @@ async def on_ready():
         else:
             time.sleep(0.1)
             continue
-            
+         
 #this runs the bot, need to pass in your bots token
 client.run(' """Your bot token goes here, with the quotes""" ')
