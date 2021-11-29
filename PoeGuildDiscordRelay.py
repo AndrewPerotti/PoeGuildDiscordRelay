@@ -25,7 +25,7 @@ def return_guild_message(clientfile):
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    channel = client.get_channel(913824153415598164)
+    channel = client.get_channel("""Channel ID""")
     last_message = None
     while True:
         outputG = return_guild_message(clienttxt)
@@ -43,6 +43,6 @@ async def on_ready():
 
 
 
-client.run('OTEyNzc2OTIwNzg4MjYyOTUy.YZ03wA.Ed5DN2d7qk_rlzbKxXfC-BJKrg0')
+client.run('"""bot token"""')
 
 
